@@ -1,32 +1,89 @@
-## MADAN
+# MADAN
 > Leonardo Gutiérrez-Gómez, Alexandre Bovet and Jean-Charles Delvenne<br>
 
 MADAN is the acronym of **Multi-scale Anomaly Detection on Attributed Networks**.
-This is an unsupervised algorithm allowing to detect anomalous nodes and their context at *all scales* of the network.
+This is an unsupervised algorithm to compute anomalies on attributed networks, i.e., graphs with node attributes, and the context of node anomalies, i.e., the clusters.
+MADAN allows us to detect anomalous nodes with respect to the node attributes and network structure at *all scales* of the network.
 
 <p align="center">
 <img src="figures/office.png">
 </p>
 
-###### Figure 1. A toy example of work relation network. Nodes have  attributes  describing  individual  features.  Node  at-tributes define structural clusters in multiple scales. At the 1st scale outlier nodes (O1,O2,O3) lie within a local con-text, i.e, offices. In a 2nd scale, departments emerge as new contexts where O2 is not defined. Finally, at a larger scale O3 remains as a global anomaly in context of the whole company.
+<font size="+1">Figure 1. A toy example of work relation network. Nodes have  attributes  describing  individual  features.  Node  at-tributes define structural clusters in multiple scales. At the 1st scale outlier nodes (O1,O2,O3) lie within a local con-text, i.e, offices. In a 2nd scale, departments emerge as new contexts where O2 is not defined. Finally, at a larger scale O3 remains as a global anomaly in context of the whole company.</font>
 
 
 Here you can find the code of the algorith with some examples implemented on our paper:
 **_Multi-scale Anomaly Detection For Attributed Networks (MADAN algorithm), published at AAAI-20 conference.
 [Preprint.](https://arxiv.org/abs/1912.04144)_**
 
-
-Tested on Jupyter notebook 5.7.0 with Python 3.7.3
-Dependences: pygsp, pandas, sklearn, networkx, matplotlib
+--------------------------------------------------------------------------------------------------------------------
+Tested on Jupyter notebook 5.7.0 with Python 3.7.3, networkx 2.5, sklearn 0.21.2, pygsp 0.5.1
 
 **Note:** For efficiency reasons some functions were written in cython. We recommend you to compile them before, running the following script:
 ```
 python setup.py build_ext --inplace 
 ```
 
---------------------------------------------------------------------------------------------------------------------
+## Example: Income network
+Suppose you have a social network where we know the income of each person. 
 
-#### Jupyter notebooks ######
+<p align="center">
+<img src="figures/income_net.png">
+</p>
+
+We aim to find anomalous people, i.e., persons with an unexpected income according to the network structure.
+
+#### Initiating MADAN ####
+```
+import Madan as md
+madan = md.Madan(net, attributes=['income'], sigma=0.08)
+```
+Where net is a networkx graph with node attributes. 
+
+#### Scanning relevant scales ####
+Before to look at anomalies, we should scan the relevant context (scales) where potential anomalies lie.
+
+```
+time_scales   =   np.concatenate([np.array([0]), 10**np.linspace(0,5,500)])
+madan.scanning_relevant_context(time_scales, n_jobs=4)
+```
+
+<p align="center">
+<img src="figures/scanning_context.png">
+</p>
+
+We can also scanning relevant contexts for different times, i.e., V(t,t'):
+
+```
+madan.scanning_relevant_context_time(time_scales)
+```
+<p align="center">
+<img src="figures/scanning_context_time.png">
+</p>
+
+#### Uncovering anomalous nodes and context ####
+We compute the concentration for all nodes at time t:
+```
+madan.compute_concentration(t)
+madan.concentration
+```
+and the anomalous nodes:
+```
+madan.anomalous_nodes
+[50, 135]
+```
+The context for anomalies at the given scale:
+```
+madan.compute_context_for_anomalies()
+madan.interp_com
+```
+
+<p align="center">
+<img src="figures/context.png">
+</p>
+
+
+## Jupyter notebooks ##
 
 * Running MADAN algorithn on a toy example network. (Figure 2 of the paper).
 
