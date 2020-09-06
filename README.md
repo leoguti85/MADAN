@@ -76,6 +76,9 @@ The context for anomalies at the given scale:
 ```
 madan.compute_context_for_anomalies()
 madan.interp_com
+
+
+madan.plot_graph_context(coord=corrd)
 ```
 
 <p align="center">
