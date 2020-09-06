@@ -24,15 +24,66 @@ Tested on Jupyter notebook 5.7.0 with Python 3.7.3, networkx 2.5, sklearn 0.21.2
 python setup.py build_ext --inplace 
 ```
 
-## Example: income network
+## Example: Income network
 Suppose you have a social network where we know the income of each person. 
 
 <p align="center">
 <img src="figures/income_net.png">
 </p>
 
+We aim to find anomalous people, i.e., persons with an unexpected income according to the network structure.
 
-#### Jupyter notebooks ######
+#### Initiating MADAN ####
+```
+import Madan as md
+madan = md.Madan(net, attributes=['income'], sigma=0.08)
+```
+Where net is a networkx graph with node attributes. 
+
+#### Scanning relevant scales ####
+Before to look at anomalies, we should scan the relevant context (scales) where potential anomalies lie.
+
+```
+time_scales   =   np.concatenate([np.array([0]), 10**np.linspace(0,5,500)])
+madan.scanning_relevant_context(time_scales, n_jobs=4)
+```
+
+<p align="center">
+<img src="figures/scanning_context.png">
+</p>
+
+We can also scanning relevant contexts for different times, i.e., V(t,t'):
+
+```
+madan.scanning_relevant_context_time(time_scales)
+```
+<p align="center">
+<img src="figures/scanning_context_time.png">
+</p>
+
+#### Uncovering anomalous nodes and context ####
+We compute the concentration for all nodes at time t:
+```
+madan.compute_concentration(t)
+madan.concentration
+```
+and the anomalous nodes:
+```
+madan.anomalous_nodes
+[50, 135]
+```
+The context for anomalies at the given scale:
+```
+madan.compute_context_for_anomalies()
+madan.interp_com
+```
+
+<p align="center">
+<img src="figures/context.png">
+</p>
+
+
+## Jupyter notebooks ##
 
 * Running MADAN algorithn on a toy example network. (Figure 2 of the paper).
 
