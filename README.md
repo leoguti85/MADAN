@@ -24,6 +24,13 @@ Tested on Jupyter notebook 5.7.0 with Python 3.7.3, networkx 2.5, sklearn 0.21.2
 python setup.py build_ext --inplace 
 ```
 
+## Example: income network
+Suppose you have a social network where we know the income of each person. 
+
+<p align="center">
+<img src="figures/income_net.png">
+</p>
+
 
 #### Jupyter notebooks ######
 
