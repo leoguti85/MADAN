@@ -1,0 +1,34 @@
+						Attribute Name							Description
+-------------------------------------------------------------------------------------------------------------------------------------------------				
+Price Info				MinPriceUsedItem						Minimum  price offered for an used item
+						Amazon_price							Price offered for a new item by Amazon
+						MinPricePrivateSeller					Minimum price offered for a new item by a private seller
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Rating Info				Rating_1_Ratio							Ratio for Rating 1
+						Rating_2_Ratio							Ratio for Rating 2
+						Rating_3_Ratio							Ratio for Rating 3
+						Rating_4_Ratio							Ratio for Rating 4
+						Rating_5_Ratio							Ratio for Rating 5
+						Rating_of_review_with_least_votes		Rating of the review with the fewest number of votes
+						Rating_of_review_with_most_votes		Rating of the review with the most number of votes
+						Rating_span								Time between the first rating and the last rating
+						Avg_Rating								Average rating of the product
+						Top_reviewer_rating						Rating of the user who has written the most number of reviews
+						Rating_of_most_helpful_rating			Rating of the most helpful review
+						Rating_of_least_helpful_rating			Rating of the less helpful review
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Review Info				Number_of_reviews						Number of reviews
+						Review_frequency						Frequency of the reviews 
+						Number_of_different_authors				Number of different authors		
+						Min_Helpful								Minimum number of helpful votes of a review
+						Min_Votes								Minimum number of review votes 
+						Max_Helpful								Maximum number of votes 
+						Avg_Votes								Average number of votes
+						Avg_Helpful								Average of helpful reviews
+						Max_Votes								Maximum number of votes 
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Other Product Info		Min_Categories_Depth_of_this_Product	Minimum depth of the categories of the product
+						Max_Categories_Depth_of_this_Product	Maximum depth of the categories of the product
+						Sales_Rank	Sales rank
+						No_of_Categories					 	Number of categories of the product
+						Product_group							Product group 
