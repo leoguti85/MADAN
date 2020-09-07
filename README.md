@@ -62,7 +62,7 @@ madan.scanning_relevant_context_time(time_scales)
 </p>
 
 #### Uncovering anomalous nodes and context ####
-We compute the concentration for all nodes at time t:
+The previous analysis suggests three relevant contexts for anomalies. We look at anomnalous nodes at a given scale by computing the concentration for all nodes, at for instance t=1000:
 ```
 madan.compute_concentration(t)
 madan.concentration
