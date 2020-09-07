@@ -41,7 +41,7 @@ madan = md.Madan(net, attributes=['income'], sigma=0.08)
 Where net is a networkx graph with node attributes. 
 
 #### Scanning relevant scales ####
-Before to look at anomalies, we should scan the relevant context (scales) where potential anomalies lie.
+Before to look at anomalies, we should scan the relevant context (scales) where potential anomalies may lie.
 
 ```
 time_scales   =   np.concatenate([np.array([0]), 10**np.linspace(0,5,500)])
@@ -52,13 +52,13 @@ madan.scanning_relevant_context(time_scales, n_jobs=4)
 <img src="figures/scanning_context.png">
 </p>
 
-We can also scanning relevant contexts for different times, i.e., V(t,t'):
+We can also scan relevant contexts for different times, i.e., VI(t,t'):
 
 ```
 madan.scanning_relevant_context_time(time_scales)
 ```
 <p align="center">
-<img src="figures/scanning_context_time.png">
+<img src="figures/scanning_context_time.png", width="550" height="350">
 </p>
 
 #### Uncovering anomalous nodes and context ####
@@ -67,16 +67,17 @@ We compute the concentration for all nodes at time t:
 madan.compute_concentration(t)
 madan.concentration
 ```
+image
+
 and the anomalous nodes:
 ```
 madan.anomalous_nodes
 [50, 135]
 ```
-The context for anomalies at the given scale:
+The context for anomalies at the given concentration scale t:
 ```
 madan.compute_context_for_anomalies()
 madan.interp_com
-
 
 madan.plot_graph_context(coord=corrd)
 ```
@@ -85,6 +86,7 @@ madan.plot_graph_context(coord=corrd)
 <img src="figures/context.png">
 </p>
 
+node #50 is anomalous in the red context, whereas node#135 is anomalous only in the blue cluster at the given scale.
 
 ## Jupyter notebooks ##
 
@@ -125,22 +127,6 @@ python plot_scores.py
 python run_real_data.py
 ```
     
-* Normalized variaiton of information  
-This script computes the variation of information V(t,t') (background of Figure 2 and 4), between optimal partitions at times t and t'.
-It allows to uncover the intrinsic scales having into account the graph structure and the node attributes.
-
-```
-variation_of_information/compare_partitions_over_time.m
-```
-
-#### Others ######
-
-This folder contains some *Matlab* figures of the scanning of relevant partitions in the toy example and the Disney network.
-```
-figures/
-```
-
-
 ### Citing
 If you find *MADAN* useful for your research, please consider citing the following paper:
 
