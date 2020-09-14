@@ -92,7 +92,7 @@ madan.plot_graph_context(coord=corrd)
 <img src="figures/context.png">
 </p>
 
-node #50 is anomalous in the red context, whereas node#135 is anomalous only in the blue cluster at the given scale.
+node #135 is anomalous in the red context (a high income person among medium and low income people), whereas node #8 is anomalous only in the blue cluster (a medium income person within the rich people cluster) at the given scale.
 
 ## Jupyter notebooks ##
 
