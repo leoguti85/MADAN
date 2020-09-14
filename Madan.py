@@ -7,6 +7,8 @@ import pandas as pd
 from collections import Counter
 from LouvainClustering_fast import Clustering, norm_var_information
 from joblib import Parallel, delayed
+from matplotlib.colors import LogNorm
+
 import pdb	
 
 class Madan(object):
@@ -19,14 +21,14 @@ class Madan(object):
 		self.attributes = attributes
 		self.pl         = Plotters()
 
-		f_matrix = np.zeros((self.N,len(attributes)))
+		self.f_matrix = np.zeros((self.N,len(attributes)))
 		
 		for i, att in enumerate(attributes):
 			attribs       =  nx.get_node_attributes(net,att)
-			f_matrix[:,i] =  list(attribs.values())
+			self.f_matrix[:,i] =  list(attribs.values())
 
 
-		f_scaled = preprocessing.MinMaxScaler().fit_transform(f_matrix)
+		f_scaled = preprocessing.MinMaxScaler().fit_transform(self.f_matrix)
 
 		if sigma is None:
 		   self.sigma = f_scaled.std()
@@ -91,10 +93,11 @@ class Madan(object):
 		clustering.find_louvain_clustering(rnd_seed=random_seed)
 		self.partition = clustering.partition.node_to_cluster_dict
 
-		clust_labels      = np.array([self.partition[i] for i in range(len(self.partition))]) # Re-order
+		clust_labels   = np.array([self.partition[i] for i in range(len(self.partition))]) # Re-order
 
-		self.interp_com   = self._interpolate_comm(self.network, clust_labels, self.anomalous_nodes)
-		self.num_clusters = len(set(self.interp_com))
+		val_clusters       = self._interpolate_comm(self.network, clust_labels, self.anomalous_nodes)
+		self.interp_com   = dict(zip(range(0, len(val_clusters)), val_clusters))
+		self.num_clusters = len(set(self.interp_com.values()))
 	
 
 		
@@ -117,7 +120,7 @@ class Madan(object):
 
 		#node_labels = dict(zip(self.network.nodes(), np.array(self.interp_com, dtype='int')))
 		#self.pl.visualize_graph_signal(self.G, self.interp_com, node_labels=node_labels)    
-		self.pl.visualize_graph_signal(self.G, self.interp_com)    
+		self.pl.visualize_graph_signal(self.G, np.array(list(self.interp_com.values())))    
 
 
 	def plot_concentration(self):
@@ -125,7 +128,7 @@ class Madan(object):
 		# Plotting concentration
 		#------------------------------------------------------------------------
 		comm_concent = np.zeros((self.N,2))
-		comm_concent[:,0] = self.interp_com
+		comm_concent[:,0] = list(self.interp_com.values())
 		comm_concent[:,1] = self.concentration
 		
 		df_comm_concent   = pd.DataFrame(comm_concent, columns=['groups','concentration'])
@@ -281,8 +284,11 @@ class Madan(object):
 
 
 	def plot_voi_matrix(self):
-		fig = plt.figure(figsize=(8,8))
-		plt.imshow(self.voi_mat, origin='low')
-		plt.grid(False)
-		plt.colorbar()	
+
+		fig, ax = plt.subplots(figsize=(8,8))
+		im = ax.imshow(self.voi_mat, origin='low')
+		ax.grid(False)
+		#ax.set_yscale('log')
+		#ax.set_xscale('log')
+		fig.colorbar(im, orientation='vertical')	
 		plt.show()
