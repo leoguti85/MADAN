@@ -74,7 +74,7 @@ madan.concentration
 and the anomalous nodes:
 ```
 madan.anomalous_nodes
-[50, 135]
+[8, 135]
 ```
 The context for anomalies at the given concentration scale t:
 ```
