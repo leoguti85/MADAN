@@ -146,4 +146,4 @@ If you find *MADAN* useful for your research, please consider citing the followi
 
 ### Contact
 
-Please send any questions you might have about the code and/or the algorithm to <leonardo.gutierrez@list.lu>.
+Please send any questions you might have about the code and/or the algorithm to <leonardo.gutierrez@list.lu> or <Alexandre.Bovet@maths.ox.ac.uk>.
