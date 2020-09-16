@@ -17,6 +17,7 @@ Here you can find the MADAN scripts with some examples and results implemented o
 [Preprint.](https://arxiv.org/abs/1912.04144)_**
 
 --------------------------------------------------------------------------------------------------------------------
+## Requirements
 Tested on Jupyter notebook 5.7.0 with Python 3.7.3, networkx 2.5, sklearn 0.21.2, pygsp 0.5.1
 
 **Note:** For efficiency reasons some functions were written in cython. We recommend you to compile them before, running the following script:
