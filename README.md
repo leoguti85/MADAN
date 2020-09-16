@@ -26,7 +26,7 @@ python setup.py build_ext --inplace
 ```
 
 ## Example: Income network
-Suppose you have a social network where we know the income of each person. 
+Considering a attributed social network with assortative communities by income: top (rich people), rigth (very poor), bottom (poor), left (medium icome).
 
 <p align="center">
 <img src="figures/income_net.png">
