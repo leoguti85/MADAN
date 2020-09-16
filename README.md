@@ -144,6 +144,6 @@ If you find *MADAN* useful for your research, please consider citing the followi
 	 year = {2020}
 	}
 
-### Miscellaneous
+### Contact
 
 Please send any questions you might have about the code and/or the algorithm to <leonardo.gutierrez@list.lu>.
