@@ -134,6 +134,9 @@ python plot_scores.py
 python run_real_data.py
 ```
     
+* [Amazon (Books)](https://www.ipd.kit.edu/~muellere/consub/RealData/AmazonFail.zip) and [Enron](https://www.ipd.kit.edu/~muellere/consub/RealData/Enron.zip) datasets.
+
+    
 ### Citing
 If you find *MADAN* useful for your research, please consider citing the following paper (Bibtex):
 
