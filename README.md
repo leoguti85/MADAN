@@ -144,6 +144,7 @@ If you find *MADAN* useful for your research, please consider citing the followi
 	author = {Gutiérrez-Gómez Leonardo, Bovet Alexandre and Delvenne Jean-Charles},
 	 title = {Multi-scale Anomaly Detection on Attributed Networks},
 	 booktitle = {Proceedings of the 34th AAAI Conference on Artificial Intelligence (AAAI-20)},
+	 doi =        {10.1609/aaai.v34i01.5409 }
 	 year = {2020}
 	}
 
