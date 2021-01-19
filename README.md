@@ -14,7 +14,7 @@ MADAN can be used to detect anomalous nodes with respect to the node attributes 
 
 Here you can find the MADAN scripts with some examples and results implemented on our paper:\
 **_Multi-scale Anomaly Detection For Attributed Networks (MADAN algorithm), published at AAAI-20 conference.
-[Preprint.](https://arxiv.org/abs/1912.04144)_**
+[Paper.](https://www.aaai.org/ojs/index.php/AAAI/article/view/5409/5265)_**
 
 --------------------------------------------------------------------------------------------------------------------
 ## Requirements
