@@ -140,13 +140,18 @@ python run_real_data.py
 ### Citing
 If you find *MADAN* useful for your research, please consider citing the following paper (Bibtex):
 
-	@inproceedings{madan-aaai20,
-	author = {Gutiérrez-Gómez Leonardo, Bovet Alexandre and Delvenne Jean-Charles},
-	 title = {Multi-scale Anomaly Detection on Attributed Networks},
-	 booktitle = {Proceedings of the 34th AAAI Conference on Artificial Intelligence (AAAI-20)},
-	 doi =        {10.1609/aaai.v34i01.5409 }
-	 year = {2020}
-	}
+	@article{Gutiérrez-Gómez_Bovet_Delvenne_2020, 
+		title={Multi-Scale Anomaly Detection on Attributed Networks}, 
+		volume={34}, 
+		url={https://ojs.aaai.org/index.php/AAAI/article/view/5409}, 
+		DOI={10.1609/aaai.v34i01.5409}, 
+		abstractNote={Many social and economic systems can be represented as attributed networks encoding the relations between entities who are themselves described by different node attributes. Finding anomalies in these systems is crucial for detecting abuses such as credit card frauds, web spams or network intrusions. Intuitively, anomalous nodes are defined as nodes whose attributes differ starkly from the attributes of a certain set of nodes of reference, called the &lt;em&gt;context&lt;/em&gt; of the anomaly. While some methods have proposed to spot anomalies locally, globally or within a community context, the problem remain challenging due to the multi-scale composition of real networks and the heterogeneity of node metadata. Here, we propose a principled way to uncover outlier nodes simultaneously with the context with respect to which they are anomalous, at &lt;em&gt;all relevant scales&lt;/em&gt; of the network. We characterize anomalous nodes in terms of the concentration retained for each node after smoothing specific signals localized on the vertices of the graph. Besides, we introduce a graph signal processing formulation of the Markov stability framework used in community detection, in order to find the context of anomalies. The performance of our method is assessed on synthetic and real-world attributed networks and shows superior results concerning state of the art algorithms. Finally, we show the scalability of our approach in large networks employing Chebychev polynomial approximations.}, 
+		number={01}, 
+		journal={Proceedings of the AAAI Conference on Artificial Intelligence}, 
+		author={Gutiérrez-Gómez, Leonardo and Bovet, Alexandre and Delvenne, Jean-Charles}, 
+		year={2020}, 
+		month={Apr.}, 
+		pages={678-685} }
 
 ### Contact
 
