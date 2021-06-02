@@ -209,7 +209,7 @@ class Madan(object):
 			#------------------------------------------------------------------         
 			self.evaluating_heat_kernel(t)
 			#------------------------------------------------------------------         
-			list_partitoins = Parallel(n_jobs=4)(delayed(self.__processInput)(i) for i in range(20))      
+			list_partitoins = Parallel(n_jobs=n_jobs)(delayed(self.__processInput)(i) for i in range(20))      
 			self.voi_list.append(self.compute_voi(list_partitoins))
 
 			self.compute_context_for_anomalies()
