@@ -131,7 +131,7 @@ python plot_scores.py
 
 * Running anomaly detection on the Disney copurchasing network data and computes ROC-AUC score, (Table 2 of the paper).
 ```
-python run_real_data.py
+python run_real_data.py -db_name disney
 ```
     
 * [Amazon (Books)](https://www.ipd.kit.edu/~muellere/consub/RealData/AmazonFail.zip) and [Enron](https://www.ipd.kit.edu/~muellere/consub/RealData/Enron.zip) datasets.
